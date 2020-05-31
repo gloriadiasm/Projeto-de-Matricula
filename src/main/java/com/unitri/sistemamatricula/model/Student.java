@@ -1,38 +1,61 @@
-package unitri.sistemamatricula.model;
+package com.unitri.sistemamatricula.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
-public class User {
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"})}, name="student")
+public class Student {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column
     private String cpf;
     @Column
     private String name;
     @Column
     private String email;
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
     @Column
     private String address;
-    @Column(name="previous_university")
+    @Column(name = "previous_university")
     private String previousUniversity;
     @Column
     private String course;
     @Column
-    private RegistryDocuments documents;
+    private String documents;
 
-    public User(String name, String email, String phoneNumber, String address, String cpf, String previousUniversity, String course, RegistryDocuments documents) {
+    public  Student(){
+
+    }
+
+    public Student(Long id, String cpf, String name, String email, String phoneNumber, String address, String previousUniversity, String course, String documents) {
+        this.id = id;
+        this.cpf = cpf;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.address = address;
-        this.cpf = cpf;
         this.previousUniversity = previousUniversity;
         this.course = course;
         this.documents = documents;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getName() {
@@ -67,14 +90,6 @@ public class User {
         this.address = address;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public String getPreviousUniversity() {
         return previousUniversity;
     }
@@ -91,11 +106,11 @@ public class User {
         this.course = course;
     }
 
-    public RegistryDocuments getDocuments() {
+    public String getDocuments() {
         return documents;
     }
 
-    public void setDocuments(RegistryDocuments documents) {
+    public void setDocuments(String documents) {
         this.documents = documents;
     }
 }

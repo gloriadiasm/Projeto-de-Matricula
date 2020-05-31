@@ -1,4 +1,4 @@
-package unitri.sistemamatricula;
+package com.unitri.sistemamatricula;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

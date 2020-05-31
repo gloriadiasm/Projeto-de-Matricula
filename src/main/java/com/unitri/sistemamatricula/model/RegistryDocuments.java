@@ -1,4 +1,4 @@
-package unitri.sistemamatricula.model;
+package com.unitri.sistemamatricula.model;
 
 public class RegistryDocuments {
 
