@@ -32,8 +32,9 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable Long id){
+    public String deleteById(@PathVariable Long id){
         adminService.deleteById(id);
+        return "Removido com sucesso.";
     }
 
     @PutMapping("/update")

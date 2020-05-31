@@ -36,8 +36,9 @@ public class StudentController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteById(@PathVariable Long id){
+    public String deleteById(@PathVariable Long id){
         studentService.deleteById(id);
+        return "Removido com sucesso.";
     }
 
     @PutMapping("/update")

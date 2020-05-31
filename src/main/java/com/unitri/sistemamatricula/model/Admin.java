@@ -3,7 +3,7 @@ package com.unitri.sistemamatricula.model;
 import javax.persistence.*;
 
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"})}, name="admin")
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"}), @UniqueConstraint(columnNames = {"email"})}, name="admin")
 public class Admin{
 
     @Id

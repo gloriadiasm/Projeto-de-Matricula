@@ -3,11 +3,11 @@ package com.unitri.sistemamatricula.model;
 import javax.persistence.*;
 
 @Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"})}, name="student")
+@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"}), @UniqueConstraint(columnNames = {"email"})}, name="student")
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
     private String cpf;
