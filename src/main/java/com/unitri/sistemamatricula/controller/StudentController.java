@@ -1,12 +1,11 @@
 package com.unitri.sistemamatricula.controller;
 
+import com.unitri.sistemamatricula.model.StudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.unitri.sistemamatricula.model.Student;
 import com.unitri.sistemamatricula.service.StudentService;
-
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
@@ -16,22 +15,23 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping("/create")
-    public Student create(@RequestBody Student student){
-        return studentService.create(student);
+    public String create(@RequestBody StudentDto student){
+        studentService.create(student);
+        return "Aluno criado com sucesso";
     }
 
     @GetMapping("/all")
-    public List<Student> findAll(){
+    public List<StudentDto> findAll(){
         return studentService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Student> findById(@PathVariable Long id){
+    public StudentDto findById(@PathVariable Long id){
         return studentService.findById(id);
     }
 
     @GetMapping("/name/{name}")
-    public List<Student> findByName(@PathVariable String name){
+    public List<StudentDto> findByName(@PathVariable String name){
         return studentService.findByName(name);
     }
 
@@ -43,6 +43,6 @@ public class StudentController {
 
     @PutMapping("/update")
     public Student update(@RequestBody Student student){
-        return studentService.create(student);
+        return studentService.update(student);
     }
 }

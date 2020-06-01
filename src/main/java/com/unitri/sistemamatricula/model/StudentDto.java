@@ -1,34 +1,20 @@
 package com.unitri.sistemamatricula.model;
 
-import javax.persistence.*;
 
-@Entity
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"}), @UniqueConstraint(columnNames = {"email"})}, name="student")
-public class Student {
+import java.util.List;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class StudentDto {
     private Long id;
-    @Column
     private String cpf;
-    @Column
     private String name;
-    @Column
     private String email;
-    @Column(name = "phone_number")
     private String phoneNumber;
-    @Column
     private String address;
-    @Column(name = "previous_university")
     private String previousUniversity;
-    @Column
     private String course;
+    private List<Document> documents;
 
-    public  Student(){
-
-    }
-
-    public Student(Long id, String cpf, String name, String email, String phoneNumber, String address, String previousUniversity, String course) {
+    public StudentDto(Long id, String cpf, String name, String email, String phoneNumber, String address, String previousUniversity, String course, List<Document> documents) {
         this.id = id;
         this.cpf = cpf;
         this.name = name;
@@ -37,7 +23,10 @@ public class Student {
         this.address = address;
         this.previousUniversity = previousUniversity;
         this.course = course;
+        this.documents = documents;
     }
+    public StudentDto(){}
+
 
     public Long getId() {
         return id;
@@ -101,5 +90,13 @@ public class Student {
 
     public void setCourse(String course) {
         this.course = course;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public void setDocuments(List<Document> documents) {
+        this.documents = documents;
     }
 }

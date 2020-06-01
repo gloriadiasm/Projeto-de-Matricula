@@ -1,12 +1,13 @@
 package com.unitri.sistemamatricula.repository;
 
+import com.unitri.sistemamatricula.model.Document;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.unitri.sistemamatricula.model.Student;
+
 import java.util.List;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface DocumentRepository extends JpaRepository<Document, Long> {
 
-    List<Student> findByNameContaining(String infix);
+    public List<Document> findByStudentId(Long studentId);
 }
