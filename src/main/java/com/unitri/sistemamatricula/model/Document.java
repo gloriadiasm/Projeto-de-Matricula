@@ -12,7 +12,7 @@ public class Document {
     private Long studentId;
     @Column
     private String name;
-    @Column(name = "file", columnDefinition="BLOB")
+    @Column(name = "file", columnDefinition="MEDIUMBLOB")
     @Lob
     private byte[] file;
 
